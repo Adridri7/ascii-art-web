@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ascii-Art-Web</title>
+    <!-- <link rel="stylesheet" href=".."> -->
+    <style>
+        html {
+          font-family:Arial, Helvetica, sans-serif;
+          margin: 20px;
+        }
+    
+        .myDiv {
+          color: #333;
+          text-align: center;
+        }
+        
+        input {
+          background-color: #4CAF50;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          cursor: pointer;
+        }
+
+        textarea {
+          font-family:Arial, Helvetica, sans-serif;
+        }
+
+        footer {
+          display: flex;
+          justify-content: center;
+          padding: 5px;
+          background-color: #45a1ff;
+          color: #fff;
+        }
+      </style>
+</head>
+<body>
+    <div class="myDiv">
+      <form method="POST" action="/">
+          <p><label for="input">Input Area to test Ascii-art algorithm:</label></p>
+          <textarea id="input" name="input" rows="4" cols="50"></textarea>
+          <br>
+          <label for="theme">Theme:</label>
+          <select name="themes" id="theme">
+            <option value="standard">Standard</option>
+            <option value="shadow">Shadow</option>
+            <option value="thinkertoy">Thinkertoy</option>
+          </select> 
+          <input type="submit" value="Write">
+        </form>
+    </div>
+<!--
+<footer>
+  <p>© 2024</p>
+</footer>
+-->
+</body>
+</html>
