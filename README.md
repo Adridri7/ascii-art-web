@@ -27,7 +27,7 @@ Ascii-Art project on web server handled in Golang 1.22.4.
 Clone the project repo
 
 ```bash
-  git clone https://link-to-project
+  git clone https://zone01normandie.org/git/arocchet/ascii-art-web.git
 ```
 
 Go to the project directory
