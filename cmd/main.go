@@ -18,25 +18,26 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case "GET":
-		handlers.RenderTemplate(w, "home")
+		handlers.RenderTemplate(w, "home", "")
 	case "POST":
 		// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
 		if err := r.ParseForm(); err != nil {
 			fmt.Fprintf(w, "ParseForm() err: %v", err)
 			return
 		}
-		//handlers.RenderTemplate(w, "home")
+
 		text := r.FormValue("input")
 		theme := r.FormValue("themes")
-		http.Redirect(w, r, "/ascii-art", http.StatusSeeOther)
+
 		Text = ascii.CheckArgs([]string{text, theme})
+		http.Redirect(w, r, "/ascii-art", http.StatusSeeOther)
 	default:
-		fmt.Fprintf(w, "Sorry, only GET and POST methods are supported.")
+		http.Error(w, "ERROR: "+strconv.Itoa(http.StatusMethodNotAllowed)+". METHOD NOT ALLOWED ", http.StatusMethodNotAllowed)
+		fmt.Println("ERROR: " + strconv.Itoa(http.StatusMethodNotAllowed) + ". METHOD NOT ALLOWED ")
 	}
 }
 
 func DisplayResult(w http.ResponseWriter, r *http.Request) {
-	fmt.Print(r.URL)
 	if r.URL.Path != "/ascii-art" {
 		http.Error(w, "ERROR: "+strconv.Itoa(http.StatusNotFound)+". PAGE NOT FOUND ", http.StatusNotFound)
 		return
@@ -44,10 +45,12 @@ func DisplayResult(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case "GET":
-		handlers.RenderTemplate(w, "ascii-art")
-
+		handlers.RenderTemplate(w, "ascii-art", Text)
+		fmt.Fprintf(w, Text)
+	default:
+		http.Error(w, "ERROR: "+strconv.Itoa(http.StatusMethodNotAllowed)+". METHOD NOT ALLOWED ", http.StatusMethodNotAllowed)
+		fmt.Println("ERROR: " + strconv.Itoa(http.StatusMethodNotAllowed) + ". METHOD NOT ALLOWED ")
 	}
-	fmt.Fprintf(w, Text)
 
 	// Display to the screen
 
@@ -55,6 +58,10 @@ func DisplayResult(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	// Setting up the home page
+
+	fs := http.FileServer(http.Dir("../web/static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
 	http.HandleFunc("/", Home)
 	http.HandleFunc("/ascii-art", DisplayResult)
 
