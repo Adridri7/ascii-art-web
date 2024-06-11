@@ -76,7 +76,6 @@ func CheckArgs(args []string) string {
 		}
 	} else if len(args) == 2 {
 		lines := ThemeToLines(args[1])
-		fmt.Print(lines)
 		input := GetTextInput(args[0])
 		return PrintAsciiArt(input, lines)
 	} else {
