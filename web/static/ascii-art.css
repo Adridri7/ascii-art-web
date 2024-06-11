@@ -15,9 +15,18 @@
     font-style: normal;
   
 }
+
+@font-face {
+    font-family: 'ibm_plex_sanstext';
+    src: url('ibmplexsans-text-webfont.woff2') format('woff2'),
+         url('ibmplexsans-text-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
   
-html {
-    font-family: 'coffee_fillsregular';
+body {
+    font-family: 'ibm_plex_sanstext';
     margin: 20px;
     background-color: #373737;
     letter-spacing :2px;
@@ -29,10 +38,10 @@ html {
 }
 
 button{
+    font-family: 'ibm_plex_sanstext';
     background-color: #5887FF ;
     color: white;
     padding: 10px 20px;
-    border: none;
     cursor: pointer;
     border: 2px solid #5887FF;
     border-radius: 5px;

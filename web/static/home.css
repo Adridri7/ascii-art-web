@@ -16,11 +16,20 @@
 
 }
 
-html {
-  font-family: 'coffee_fillsregular';
+@font-face {
+  font-family: 'ibm_plex_sanstext';
+  src: url('ibmplexsans-text-webfont.woff2') format('woff2'),
+       url('ibmplexsans-text-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+body {
+  font-family: 'ibm_plex_sanstext';
   margin: 20px;
   background-color: #373737;
-  letter-spacing :2px;
+  letter-spacing :0.5px;
 }
 
 .myDiv {
@@ -29,10 +38,9 @@ html {
 }
 
 
-
 .themes{
   background-color: #A5A5A5;
-  font-family: 'coffee_fillsregular';
+  font-family: 'ibm_plex_sanstext';
 }
 
 input {
@@ -43,11 +51,11 @@ input {
   cursor: pointer;
   border: 2px solid #5ab212;
   border-radius: 5px;
-  font-family: 'coffee_fillsregular';
+  font-family: 'ibm_plex_sanstext';
 }
 
 select{
-  font-family: 'coffee_fillsregular';
+  font-family: 'ibm_plex_sanstext';
 }
 
 
@@ -56,7 +64,7 @@ textarea {
   color: #FFFFFF;
   border: 2px solid #464748;
   border-radius: 5px;
-  font-family: 'coffee_fillsregular';
+  font-family: 'ibm_plex_sanstext';
 }
 
 footer {
