@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'coffee_sparkregular';
+    src: url('coffee_spark-webfont.woff2') format('woff2'),
+         url('coffee_spark-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+}
+  
+@font-face {
+    font-family: 'coffee_fillsregular';
+    src: url('coffee_fills-webfont.woff2') format('woff2'),
+         url('coffee_fills-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+}
+  
+html {
+    font-family: 'coffee_fillsregular';
+    margin: 20px;
+    background-color: #373737;
+    letter-spacing :2px;
+}
+
+.myTest {
+    color: white;
+    text-align: center;
+}
+
+button{
+    background-color: #5887FF ;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #5887FF;
+    border-radius: 5px;
+  }
+  

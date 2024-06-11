@@ -1,7 +1,26 @@
+@font-face {
+  font-family: 'coffee_sparkregular';
+  src: url('coffee_spark-webfont.woff2') format('woff2'),
+       url('coffee_spark-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'coffee_fillsregular';
+  src: url('coffee_fills-webfont.woff2') format('woff2'),
+       url('coffee_fills-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 html {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: 'coffee_fillsregular';
   margin: 20px;
-  background-color: #595959;
+  background-color: #373737;
+  letter-spacing :2px;
 }
 
 .myDiv {
@@ -9,27 +28,35 @@ html {
   text-align: center;
 }
 
-.themes {
+
+
+.themes{
   background-color: #A5A5A5;
+  font-family: 'coffee_fillsregular';
 }
 
 input {
-  background-color: #A5A5A5;
+  background-color: #5ab212 ;
   color: white;
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  border: 2px solid #A5A5A5;
+  border: 2px solid #5ab212;
   border-radius: 5px;
+  font-family: 'coffee_fillsregular';
 }
 
+select{
+  font-family: 'coffee_fillsregular';
+}
+
+
 textarea {
-  font-family:Arial, Helvetica, sans-serif;
-  background-color: #7F7F7F;
+  background-color: #464748;
   color: #FFFFFF;
-  border: 2px solid #7F7F7F;
+  border: 2px solid #464748;
   border-radius: 5px;
-  
+  font-family: 'coffee_fillsregular';
 }
 
 footer {
