@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 	"strconv"
-	"text/template"
 )
 
 func RenderTemplate(w http.ResponseWriter, tmpl string, s string) {
