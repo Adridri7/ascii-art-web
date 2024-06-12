@@ -79,8 +79,8 @@ func CreateFile(w http.ResponseWriter, path string) *os.File {
 
 func main() {
 	// Setting up the home page
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
-	http.Handle("/download/", http.StripPrefix("/download/", http.FileServer(http.Dir("web/download"))))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("./web/static"))))
+	http.Handle("/download/", http.StripPrefix("/download/", http.FileServer(http.Dir("./web/download"))))
 
 	http.HandleFunc("/", Home)
 	http.HandleFunc("/ascii-art", DisplayResult)
