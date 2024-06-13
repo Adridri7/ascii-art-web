@@ -1,32 +1,15 @@
-# syntax=docker/dockerfile:1
+# Étape de construction
+FROM golang:1.22-alpine
 
-# Builder stage
-FROM golang:1.22 AS builder
+WORKDIR /test_http
 
-# Set destination for COPY
-WORKDIR /app
-
-# Download Go modules
 COPY go.mod ./
-RUN go mod download
 
-# Copy the source code
-COPY ./ ./
+COPY . .
 
-# Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux go build -o /docker-ascii-art-web
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main
 
-# Final stage
-FROM alpine:latest
-
-# Install the certificates to avoid "x509: certificate signed by unknown authority" errors
-RUN apk --no-cache add ca-certificates
-
-# Copy the binary from the builder stage
-COPY --from=builder /docker-ascii-art-web /docker-ascii-art-web
-
-# Run the binary
-CMD ["/docker-ascii-art-web"]
-
-# Expose the port the application runs on
+# Exposer le port
 EXPOSE 8080
+
+CMD ["./main"]
