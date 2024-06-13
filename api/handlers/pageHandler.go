@@ -37,6 +37,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
 		RenderTemplate(w, "home", "")
+		log.Println("REQUEST")
 	case "POST":
 		// Call ParseForm() to parse the raw query and update r.PostForm and r.Form.
 		if err := r.ParseForm(); err != nil {
